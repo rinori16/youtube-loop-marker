@@ -1,0 +1,33 @@
+{
+  "manifest_version": 3,
+  "name": "YouTube-Loop-Marker",
+  "version": "1.0.0",
+  "description": "YouTubeのA/B地点を設定して区間ループとジャンプを行う拡張",
+  "permissions": ["tabs"],
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["https://www.youtube.com/watch*"],
+      "js": ["content_script.js"],
+      "css": ["style.css"]
+    }
+  ],
+  "commands": {
+    "jump-to-a": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+A",
+        "mac": "Command+Shift+A"
+      },
+      "description": "A地点へジャンプ"
+    },
+    "jump-to-b": {
+      "suggested_key": {
+        "default": "Ctrl+Shift+B",
+        "mac": "Command+Shift+B"
+      },
+      "description": "B地点へジャンプ"
+    }
+  }
+}
